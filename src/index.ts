@@ -59,21 +59,21 @@ async function main() {
   if (isEnabled('BUSINESS_DATA')) registerBusinessDataTools(server, apiClient);
   if (isEnabled('AI_OPTIMIZATION')) registerAiOptimizationTools(server, apiClient);
 
-  console.error(`Enabled modules: ${enabledModules ? Array.from(enabledModules).join(', ') : 'ALL'}`);
+  // console.error(`Enabled modules: ${enabledModules ? Array.from(enabledModules).join(', ') : 'ALL'}`);
 
   // Register third-party API tools
   
   // Local Falcon API (optional integration)
   const localFalconApiKey = process.env.LOCALFALCON_API_KEY;
   if (localFalconApiKey) {
-    console.error("Local Falcon API key found - registering Local Falcon tools");
+    // console.error("Local Falcon API key found - registering Local Falcon tools");
     registerLocalFalconTools(server, {
       apiKey: localFalconApiKey,
       baseUrl: process.env.LOCALFALCON_API_URL // Optional, uses default if not provided
     });
   } else {
-    console.error("Local Falcon API key not found - skipping Local Falcon integration");
-    console.error("To enable, set the LOCALFALCON_API_KEY environment variable");
+    // console.error("Local Falcon API key not found - skipping Local Falcon integration");
+    // console.error("To enable, set the LOCALFALCON_API_KEY environment variable");
   }
   
   // Add more third-party API integrations here
@@ -84,10 +84,10 @@ async function main() {
 
   // Start receiving messages on stdin and sending messages on stdout
   const transport = new StdioServerTransport();
-  console.error("SEO Tools MCP Server starting...");
-  
+  // console.error("SEO Tools MCP Server starting...");
+
   await server.connect(transport);
-  console.error("SEO Tools MCP Server connected");
+  // console.error("SEO Tools MCP Server connected");
 }
 
 main().catch((error) => {
