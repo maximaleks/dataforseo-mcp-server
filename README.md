@@ -138,6 +138,22 @@ export ENABLED_TOOLS="serp_google_maps_live,business_data_google_my_business_inf
 
 If neither variable is set, all modules and tools are enabled by default.
 
+### Module-scoped subscriptions and 404s
+
+DataForSEO access is often granted per module, not as a single all-or-nothing subscription. That means some endpoints may work while others return `404`.
+
+Important interpretation rule:
+
+- `404` on known live endpoints such as `SERP`, `App Data`, `DataForSEO Labs App Store`, or `Content Generation` can mean the module is **not enabled for the current account**
+- this is not necessarily a bug in the MCP server or a wrong endpoint path
+- free discovery endpoints such as locations or languages may still work even when paid live endpoints in the same broad area are unavailable
+
+The server now normalizes known module-scope `404` responses into a clearer message:
+
+- `DataForSEO module not enabled: <module> ...`
+
+When this happens, enable the module in the DataForSEO dashboard or switch to tools from modules that are already enabled for the current account.
+
 ### Using with Claude or other LLMs
 
 This server implements the Model Context Protocol, which allows LLMs to interact with external systems in a standardized way. To use it with Claude, you'll need to integrate it with your LLM platform according to their specific MCP implementation.

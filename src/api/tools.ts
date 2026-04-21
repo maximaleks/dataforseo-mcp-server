@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { DataForSeoClient } from "./client.js";
+import { DataForSeoClient, DataForSeoModuleNotEnabledError } from "./client.js";
 
 // Global tool registry - stores both metadata and handler functions
 export const toolRegistry: Map<string, any> = new Map();
@@ -52,14 +52,27 @@ export function registerTool<T extends z.ZodRawShape>(
     } catch (error) {
       console.error(`Error in ${name} tool:`, error);
 
-      if (error instanceof Error) {
+      if (error instanceof DataForSeoModuleNotEnabledError) {
         return {
           content: [
             {
               type: "text",
               text: JSON.stringify({
                 error: error.message,
-                stack: error.stack
+                code: "module_not_enabled"
+              }, null, 2)
+            }
+          ]
+        };
+      }
+
+      if (error instanceof Error) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify({
+                error: error.message
               }, null, 2)
             }
           ]
