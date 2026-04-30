@@ -55,7 +55,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<GoogleOrganicLiveResult>>(
-        "/serp/google/organic/live",
+        "/serp/google/organic/live/advanced",
         [params]
       );
       
@@ -123,7 +123,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/google/images/live",
+        "/serp/google/images/live/advanced",
         [params]
       );
       
@@ -139,7 +139,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/google/news/live",
+        "/serp/google/news/live/advanced",
         [params]
       );
       
@@ -155,7 +155,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/google/jobs/live",
+        "/serp/google/jobs/live/advanced",
         [params]
       );
       
@@ -171,7 +171,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/google/shopping/live",
+        "/serp/google/shopping/live/advanced",
         [params]
       );
       
@@ -187,7 +187,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/bing/organic/live",
+        "/serp/bing/organic/live/advanced",
         [params]
       );
       
@@ -203,7 +203,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/yahoo/organic/live",
+        "/serp/yahoo/organic/live/advanced",
         [params]
       );
       
@@ -219,7 +219,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/baidu/organic/live",
+        "/serp/baidu/organic/live/advanced",
         [params]
       );
       
@@ -235,7 +235,7 @@ export function registerSerpTools(server: McpServer, apiClient: DataForSeoClient
     googleOrganicLiveSchema,
     async (params, client) => {
       const response = await client.post<DataForSeoResponse<any>>(
-        "/serp/youtube/organic/live",
+        "/serp/youtube/organic/live/advanced",
         [params]
       );
       
